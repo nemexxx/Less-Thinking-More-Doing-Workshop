@@ -1,6 +1,14 @@
-import webbrowser
-import os
+"""Open the site locally in your default browser.
 
-# Full path to the HTML file
-file_path = os.path.abspath("/Users/emelyjunker/Documents/Programming/Improv/index.html")
-webbrowser.open(f"file://{file_path}")
+Usage:  python3 run.py          -> opens the English page
+        python3 run.py de       -> opens the German page
+"""
+
+import os
+import sys
+import webbrowser
+
+page = "index-de.html" if "de" in sys.argv[1:] else "index.html"
+path = os.path.join(os.path.dirname(os.path.abspath(__file__)), page)
+
+webbrowser.open(f"file://{path}")
